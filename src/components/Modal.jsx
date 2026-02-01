@@ -1,0 +1,1 @@
+import styles from './styles/Modal.module.css'
