@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/weather-project-react/static/css/main.bb9d0295.css",
+    "main.js": "/weather-project-react/static/js/main.e2eadd22.js",
+    "static/js/453.bb9f8c3d.chunk.js": "/weather-project-react/static/js/453.bb9f8c3d.chunk.js",
+    "static/media/logo-desktop-1.webp": "/weather-project-react/static/media/logo-desktop-1.6646df5b92a1d0a48d0b.webp",
+    "static/media/user.webp": "/weather-project-react/static/media/user.8a8928eb1a793900afb1.webp",
+    "static/media/logo-tablet-1.webp": "/weather-project-react/static/media/logo-tablet-1.f4713d95701d46f1c1b0.webp",
+    "index.html": "/weather-project-react/index.html",
+    "static/media/logo-mobile-1.webp": "/weather-project-react/static/media/logo-mobile-1.63fec702bd3f862f2669.webp",
+    "main.bb9d0295.css.map": "/weather-project-react/static/css/main.bb9d0295.css.map",
+    "main.e2eadd22.js.map": "/weather-project-react/static/js/main.e2eadd22.js.map",
+    "453.bb9f8c3d.chunk.js.map": "/weather-project-react/static/js/453.bb9f8c3d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb9d0295.css",
+    "static/js/main.e2eadd22.js"
+  ]
+}
