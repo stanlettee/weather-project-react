@@ -1,8 +1,13 @@
 .hero {
     padding-top: 50px;
+    margin: 0 auto;
     padding-bottom: 100px;
     background-color: black;
     height: 345px;
+    background-image: url('../../images/hero-nature-mobile.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 393px;
 }
 
 .container {
@@ -70,6 +75,7 @@
     color: #878787;
     font-size: 6px;
     border: none;
+    outline: none;
 }
 
 .heroButton {
@@ -82,6 +88,7 @@
     align-items: center;
     justify-content: center;
     background-color: #FFB36C;
+    cursor: pointer;
 }
 
 .heroIcon {
@@ -94,6 +101,8 @@
         padding-top: 40px;
         padding-bottom: 40px;
         height: 345px;
+        background-image: url('../../images/hero-nature-tablet.webp');
+        max-width: 834px;
     }
 
     .heroTitle {
@@ -160,9 +169,11 @@
 
 @media (min-width: 1200px) {
     .hero {
+        max-width: 1440px;
         padding-top: 100px;
         padding-bottom: 100px;
         height: 595px;
+        background-image: url('../../images/hero-nature-desktop.webp');
 }
 
     .heroTitle {

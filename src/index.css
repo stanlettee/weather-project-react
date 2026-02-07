@@ -7,6 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -38,12 +53,13 @@ img {
 }
 
 
+
 .container {
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
   max-width: 293px;
-  outline: solid red;
+  /* outline: solid red; */
   margin: 0 auto;
 }
 

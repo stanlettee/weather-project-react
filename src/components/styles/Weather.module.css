@@ -1,0 +1,40 @@
+.weather {
+    padding-top: 35px;
+    padding-bottom: 50px;
+}
+
+#item2, #item3 {
+    display: none;
+}
+
+
+
+@media (min-width: 768px) {
+    .weather {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    #item2 {
+        display: inherit;
+    }
+
+    .weatherList {
+        display: flex;
+    }  
+}
+
+@media (min-width: 1200px) {
+    .weather {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    #item3 {
+        display: inherit;
+    }
+
+    .weatherList {
+        display: flex;
+    }   
+}
