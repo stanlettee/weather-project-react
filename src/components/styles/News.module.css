@@ -55,5 +55,22 @@
         border-radius: 12px;
         cursor: pointer;
         font-weight: 500;
+        transition:
+            background-color 0.2s ease,
+            transform 0.15 ease,
+            box-shadow 0.15s ease;
+    }
+
+.button:hover, .button:focus {
+    background-color: #ff9c3f;;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+    
+
+}
+
+    .button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     }
 }

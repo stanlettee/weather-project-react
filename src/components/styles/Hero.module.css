@@ -89,7 +89,25 @@
     justify-content: center;
     background-color: #FFB36C;
     cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.15 ease,
+        box-shadow 0.15s ease;
+        
 }
+
+.heroButton:hover, .heroButton:focus {
+    background-color: #ff9c3f;;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateX(-1px);
+    
+
+}
+
+    .heroButton:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
 
 .heroIcon {
     width: 9px;

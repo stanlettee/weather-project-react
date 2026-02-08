@@ -84,7 +84,7 @@
 
     .headerLink:hover, .headerLink:focus {
         color: #ff9c3f;;
-        transform: translateY(-1px);
+        transform: translateY(-1.5px);
 
     }
 
