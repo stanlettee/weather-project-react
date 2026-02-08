@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/weather-project-react/static/css/main.0586fa0e.css",
-    "main.js": "/weather-project-react/static/js/main.b343376f.js",
+    "main.css": "/weather-project-react/static/css/main.28f85a98.css",
+    "main.js": "/weather-project-react/static/js/main.10b6a5cf.js",
     "static/js/453.bb9f8c3d.chunk.js": "/weather-project-react/static/js/453.bb9f8c3d.chunk.js",
     "static/media/whatsapp.svg": "/weather-project-react/static/media/whatsapp.65dd5480fea7f6f399c2ae110845582c.svg",
     "static/media/hero-nature-desktop.webp": "/weather-project-react/static/media/hero-nature-desktop.1daaf1748706bebf3755.webp",
@@ -12,6 +12,7 @@
     "static/media/pet-image3.webp": "/weather-project-react/static/media/pet-image3.fe27f2af6c033d4c96aa.webp",
     "static/media/hero-nature-mobile.webp": "/weather-project-react/static/media/hero-nature-mobile.005baecd66860585c99e.webp",
     "static/media/pet-image2.webp": "/weather-project-react/static/media/pet-image2.a7c9e40ffdb90e27b29d.webp",
+    "static/media/pressure.png": "/weather-project-react/static/media/pressure.c18e7c4e66063b4bf233.png",
     "static/media/pet-image4.webp": "/weather-project-react/static/media/pet-image4.ea02885f9ad0f6c03f9f.webp",
     "static/media/slider-image3.webp": "/weather-project-react/static/media/slider-image3.a8eb8f5d97323b2c1188.webp",
     "static/media/slider-image2.webp": "/weather-project-react/static/media/slider-image2.1fd60dafe467bb390065.webp",
@@ -23,12 +24,12 @@
     "static/media/logo-tablet-1.webp": "/weather-project-react/static/media/logo-tablet-1.f4713d95701d46f1c1b0.webp",
     "index.html": "/weather-project-react/index.html",
     "static/media/logo-mobile-1.webp": "/weather-project-react/static/media/logo-mobile-1.63fec702bd3f862f2669.webp",
-    "main.0586fa0e.css.map": "/weather-project-react/static/css/main.0586fa0e.css.map",
-    "main.b343376f.js.map": "/weather-project-react/static/js/main.b343376f.js.map",
+    "main.28f85a98.css.map": "/weather-project-react/static/css/main.28f85a98.css.map",
+    "main.10b6a5cf.js.map": "/weather-project-react/static/js/main.10b6a5cf.js.map",
     "453.bb9f8c3d.chunk.js.map": "/weather-project-react/static/js/453.bb9f8c3d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0586fa0e.css",
-    "static/js/main.b343376f.js"
+    "static/css/main.28f85a98.css",
+    "static/js/main.10b6a5cf.js"
   ]
 }
