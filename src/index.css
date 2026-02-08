@@ -52,7 +52,9 @@ img {
   display: block;
 }
 
-
+button {
+  cursor: pointer;
+}
 
 .container {
   width: 100%;

@@ -34,13 +34,13 @@ export const Weather = () => {
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
                                 <button type='button' className={styles.likeButton}>
-                                    <IoMdHeartEmpty />
+                                    <IoMdHeartEmpty className={styles.likeIcon}/>
                                 </button>
                                 <button type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
                                 <button type='button' className={styles.deleteButton}>
-                                    <RiDeleteBin6Line />
+                                    <RiDeleteBin6Line className={styles.deleteIcon}/>
                                 </button>
                             </div>
                         </li>
@@ -68,13 +68,13 @@ export const Weather = () => {
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
                                 <button type='button' className={styles.likeButton}>
-                                    <IoMdHeartEmpty />
+                                    <IoMdHeartEmpty className={styles.likeIcon}/>
                                 </button>
                                 <button type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
                                 <button type='button' className={styles.deleteButton}>
-                                    <RiDeleteBin6Line />
+                                    <RiDeleteBin6Line className={styles.deleteIcon}/>
                                 </button>
                             </div>
                         </li>
@@ -102,13 +102,13 @@ export const Weather = () => {
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
                                 <button type='button' className={styles.likeButton}>
-                                    <IoMdHeartEmpty />
+                                    <IoMdHeartEmpty className={styles.likeIcon}/>
                                 </button>
                                 <button type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
                                 <button type='button' className={styles.deleteButton}>
-                                    <RiDeleteBin6Line />
+                                    <RiDeleteBin6Line className={styles.deleteIcon}/>
                                 </button>
                             </div>
                         </li>
