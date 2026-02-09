@@ -206,7 +206,7 @@
 
     .weatherList {
         display: flex;
-        gap: 110px;
+        gap: 90px;
     }  
 
     .weatherItem {
