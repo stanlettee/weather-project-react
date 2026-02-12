@@ -3,14 +3,18 @@ import { Header } from "./components/Header"
 import { Footer } from "./components/Footer"
 import { Gallery } from "./components/Gallery"
 import { Hero } from "./components/Hero"
-// import { Modal } from "./components/Modal"
+import { Modal } from "./components/Modal"
 import { News } from "./components/News"
 import { Weather } from "./components/Weather"
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [modal, setModal] = useState(false)
+
+
   return (
     <div className='app'>
-      <Header />
+      <Header setModal={setModal}/>
       <main className='content'>
         <Hero />
         <Weather />
@@ -18,7 +22,7 @@ function App() {
         <Gallery />
       </main> 
       <Footer />
-      {/* <Modal /> */}
+      <Modal modal={modal} setModal={setModal}/>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import logoDesktop from '../images/logo-desktop-1.webp'
 import user from '../images/user.webp'
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-export const Header = () => {
+export const Header = ({setModal}) => {
 
 
     return (
@@ -28,11 +28,11 @@ export const Header = () => {
                     </li>
                 </ul>
                 <div className={styles.headerDiv}>
-                    <button type='button' className={styles.headerButton}>Sign Up</button>
+                    <button onClick={() => {setModal(true)}} type='button' className={styles.headerButton}>Sign Up</button>
                     <img className={styles.headerAvatar} src={user} alt="user's avatar"/>
                 </div>
                 <div className={styles.headerMenu}>
-                    <button type='button' className={styles.headerMenuButton}>
+                    <button onClick={() => {setModal(true)}} type='button' className={styles.headerMenuButton}>
                         <a className={styles.headerMenuLink}>Menu</a>
                         <MdOutlineKeyboardArrowRight className={styles.headerMenuIcon}/>
                     </button>
