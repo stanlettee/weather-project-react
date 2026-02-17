@@ -10,15 +10,21 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [modal, setModal] = useState(false)
+  const [location, setLocation] = useState('Prague')
+  const [isUserLocation, setIsUserLocation] = useState(false) 
 
+  useEffect(() => {
+    console.log(location)
+    console.log(isUserLocation)
+  }, [location])
 
   return (
     <div className='app'>
       <Header setModal={setModal}/>
       <main className='content'>
-        <Hero />
-        <Weather />
-        <News />
+        <Hero setLocation={setLocation} setIsUserLocation={setIsUserLocation}/>
+        <Weather location={location} isUserLocation={isUserLocation}/>
+        {/* <News /> */}
         <Gallery />
       </main> 
       <Footer />

@@ -1,7 +1,19 @@
 import styles from './styles/Hero.module.css'
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import { useState, useEffect } from 'react';
 
-export const Hero = () => {
+export const Hero = ({setLocation, setIsUserLocation}) => {
+    const [name, setName] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setLocation(name)
+        setIsUserLocation(true)
+    }
+
+    const handleChange = (e) => {
+        setName(e.target.value)
+    }
     return (
         <section className={styles.hero}>
             <div className={`${styles.container} container`}>
@@ -11,9 +23,9 @@ export const Hero = () => {
                     <div className={styles.heroLine}></div>
                     <p className={styles.heroDate}>October 2023 Friday, 13th</p>
                 </div>
-                <form className={styles.heroForm}>
-                    <input className={styles.heroInput} placeholder="Search location..." />
-                    <button type="button" className={styles.heroButton}>
+                <form onSubmit={handleSubmit} className={styles.heroForm}>
+                    <input onChange={handleChange} value={name} className={styles.heroInput} placeholder="Search location..." />
+                    <button type="submit" className={styles.heroButton}>
                         <HiOutlineMagnifyingGlass className={styles.heroIcon}/>
                     </button>
                 </form>

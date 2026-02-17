@@ -1,11 +1,14 @@
 import styles from './styles/WeatherForecast.module.css'
-import lightRain from '../../images/light-rain.png'
-import clear from '../../images/clear-sky.png'
+import lightRain from '../../images/lightRain.png'
+import clear from '../../images/sun.png'
 import scattered from '../../images/scattered-clouds.png'
-import few from '../../images/few-clouds.png'
-import overcast from '../../images/overcast-clouds.png'
+import few from '../../images/fewClouds.png'
+import overcast from '../../images/overcastClouds.png'
+import { useState, useEvent } from 'react'
 
-export const WeatherForecast = () => {
+export const WeatherForecast = ({data}) => {
+    const [icon, setIcon] = useState(data.weather[0].icon);
+    const [iconUrl, setIconUrl] = useState(`https://openweathermap.org/img/wn/${icon}.png`);
     return (
         <div className={styles.div}>
             <h2 className={styles.title}>8-day forecast</h2>

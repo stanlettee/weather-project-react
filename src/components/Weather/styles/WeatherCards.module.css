@@ -309,6 +309,8 @@
 
     .weatherDateDiv {
         padding-left: 68px;
+        display: flex;
+        align-items: center;
     }
 
     .cityWeatherDiv {
