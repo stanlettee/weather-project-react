@@ -1,8 +1,8 @@
 import styles from './styles/WeatherInfo.module.css'
-import visibility from '../../images/visibility.png'
-import windSpeed from '../../images/wind-speed.png'
-import pressure from '../../images/pressure.png'
-import feelsLike from '../../images/feels-like.png'
+import visibility from '../../images/eye.png'
+import windSpeed from '../../images/wind.png'
+import pressure from '../../images/pressure-gauge.png'
+import feelsLike from '../../images/temperature.png'
 import humidity from '../../images/humidity.png'
 
 export const WeatherInfo = ({data}) => {

@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [modal, setModal] = useState(false)
-  const [location, setLocation] = useState('Prague')
+  const [location, setLocation] = useState('Kyiv')
   const [isUserLocation, setIsUserLocation] = useState(false) 
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
       <main className='content'>
         <Hero setLocation={setLocation} setIsUserLocation={setIsUserLocation}/>
         <Weather location={location} isUserLocation={isUserLocation}/>
-        {/* <News /> */}
+        <News />
         <Gallery />
       </main> 
       <Footer />
