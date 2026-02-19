@@ -2,7 +2,7 @@
     margin-top: 60px;
     border: none;
     width: 273px;
-    height: 755px;
+    height: 580px;
     background-color: #E8E8E8;
     border-radius: 15px;
     padding-top: 18px;
@@ -80,11 +80,11 @@
 @media (min-width: 768px) {
     .div {
         width: 614px;
-        height: 526px;
+        height: 370px;
         padding-top: 20px;
         padding-bottom: 35px;
-        padding-left: 35px;
-        padding-right: 35px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     .list {
@@ -150,10 +150,10 @@
 @media (min-width: 1200px) {
     .div {
         width: 1120px;
-        height: 554px;
+        height: 400px;
         padding-top: 26px;
-        padding-left: 76px;
-        padding-right: 76px;
+        padding-left: 66px;
+        padding-right: 66px;
         padding-bottom: 42px;
     }
 

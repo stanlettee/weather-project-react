@@ -19,6 +19,8 @@ export const WeatherCards = ({location, data}) => {
     const [date, setDate] = useState(new Date())
     const [dayNumber] = useState(date.getDay())
     const [dayName, setDayName] = useState(days[dayNumber])
+    const [hourly, setHourly] = useState(false)
+    const [dayly, setDayly] = useState(false)
     // const [icon, setIcon] = useState(data.weather[0].icon);
     // const [iconUrl, setIconUrl] = useState(`https://openweathermap.org/img/wn/${icon}.png`);
     const [image, setImage] = useState(() => {
@@ -82,8 +84,17 @@ export const WeatherCards = ({location, data}) => {
                             </div>
                             <p className={styles.weatherTime}>{date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                             <div className={styles.weatherButtonDiv}>
-                                <button className={styles.weatherButton}>Hourly forecast</button>
-                                <button className={styles.weatherButton}>Weekly forecast</button>
+                                <button onClick={() => {setHourly(true)}} className={styles.weatherButton}>Hourly forecast</button>
+                                <button onClick={() => {const section = document.getElementById("forecast");
+                                 if (section) {
+                                    const top = section.offsetTop - (window.innerHeight / 2) + (section.offsetHeight / 2);
+                                    window.scrollTo({
+                                    top: top,
+                                    behavior: "smooth" 
+                                })} else {
+                                    setDayly(true)
+                                }
+                                }} className={styles.weatherButton}>5-day forecast</button>
                             </div>
                             <div className={styles.weatherDateDiv}>
                                 <p className={styles.weatherDate}>{date.toLocaleDateString()}</p>
@@ -116,8 +127,16 @@ export const WeatherCards = ({location, data}) => {
                             </div>
                             <p className={styles.weatherTime}>{date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                             <div className={styles.weatherButtonDiv}>
-                                <button className={styles.weatherButton}>Hourly forecast</button>
-                                <button className={styles.weatherButton}>Weekly forecast</button>
+                                <button onClick={() => {setHourly(true)}} className={styles.weatherButton}>Hourly forecast</button>
+                                <button onClick={() => {const section = document.getElementById("forecast");
+                                 if (section) {
+                                    const top = section.offsetTop - (window.innerHeight / 2) + (section.offsetHeight / 2);
+                                    window.scrollTo({
+                                    top: top,
+                                    behavior: "smooth" 
+                                    })} else {
+                                    setDayly(true)
+                                }}} className={styles.weatherButton}>5-day forecast</button>
                             </div>
                             <div className={styles.weatherDateDiv}>
                                 <p className={styles.weatherDate}>{date.toLocaleDateString()}</p>
@@ -150,8 +169,18 @@ export const WeatherCards = ({location, data}) => {
                             </div>
                             <p className={styles.weatherTime}>{date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                             <div className={styles.weatherButtonDiv}>
-                                <button className={styles.weatherButton}>Hourly forecast</button>
-                                <button className={styles.weatherButton}>Weekly forecast</button>
+                                <button onClick={() => {setHourly(true)}} className={styles.weatherButton}>Hourly forecast</button>
+                                <button onClick={() => {const section = document.getElementById("forecast");
+                                 if (section) {
+                                    const top = section.offsetTop - (window.innerHeight / 2) + (section.offsetHeight / 2);
+                                    window.scrollTo({
+                                    top: top,
+                                    behavior: "smooth" 
+                                })} else {
+                                    setDayly(true)
+                                }
+
+                                }} className={styles.weatherButton}>5-day forecast</button>
                             </div>
                             <div className={styles.weatherDateDiv}>
                                 <p className={styles.weatherDate}>{date.toLocaleDateString()}</p>

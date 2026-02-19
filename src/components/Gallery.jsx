@@ -13,6 +13,15 @@ export const Gallery = () => {
     const changePage = () => {
         setPage(page + 1)
     }
+    const setImageSrc = (index) => {
+        const centerIndex = 2;
+        const newImages = [...images];
+        const clickedItem = newImages[index];
+        newImages.splice(index, 1);
+        newImages.splice(centerIndex, 0, clickedItem);
+        setImages(newImages);
+    };
+
     useEffect(() => {
         axios.get("https://pixabay.com/api/", {
             params: {
@@ -57,7 +66,7 @@ export const Gallery = () => {
                     {images.map((item, index) => {
                         console.log(index)
                         return <li key={index} className={styles.item}>
-                            <img src={item.largeImageURL} className={styles[`image${index + 1}`]}/>
+                            <img onClick={() => setImageSrc(index)} src={item.largeImageURL} className={styles[`image${index + 1}`]}/>
                         </li>
                     })}
                 </ul>
