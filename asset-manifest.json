@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/weather-project-react/static/css/main.18750d92.css",
-    "main.js": "/weather-project-react/static/js/main.9e16ffd8.js",
+    "main.css": "/weather-project-react/static/css/main.b53e9c14.css",
+    "main.js": "/weather-project-react/static/js/main.a213c143.js",
     "static/js/453.bb9f8c3d.chunk.js": "/weather-project-react/static/js/453.bb9f8c3d.chunk.js",
     "static/media/whatsapp.svg": "/weather-project-react/static/media/whatsapp.65dd5480fea7f6f399c2ae110845582c.svg",
     "static/media/hero-nature-desktop.webp": "/weather-project-react/static/media/hero-nature-desktop.1daaf1748706bebf3755.webp",
@@ -37,12 +37,12 @@
     "static/media/logo-tablet-1.webp": "/weather-project-react/static/media/logo-tablet-1.f4713d95701d46f1c1b0.webp",
     "index.html": "/weather-project-react/index.html",
     "static/media/logo-mobile-1.webp": "/weather-project-react/static/media/logo-mobile-1.63fec702bd3f862f2669.webp",
-    "main.18750d92.css.map": "/weather-project-react/static/css/main.18750d92.css.map",
-    "main.9e16ffd8.js.map": "/weather-project-react/static/js/main.9e16ffd8.js.map",
+    "main.b53e9c14.css.map": "/weather-project-react/static/css/main.b53e9c14.css.map",
+    "main.a213c143.js.map": "/weather-project-react/static/js/main.a213c143.js.map",
     "453.bb9f8c3d.chunk.js.map": "/weather-project-react/static/js/453.bb9f8c3d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.18750d92.css",
-    "static/js/main.9e16ffd8.js"
+    "static/css/main.b53e9c14.css",
+    "static/js/main.a213c143.js"
   ]
 }
