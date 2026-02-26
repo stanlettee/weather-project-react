@@ -14,15 +14,23 @@ import mist from '../../images/mist.png'
 import snow from '../../images/snow.png'
 import thunder from '../../images/thunder.png'
 
-export const WeatherCards = ({location, data}) => {
+export const WeatherCards = ({setUserClick, location, data, reload}) => {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const [date, setDate] = useState(new Date())
     const [dayNumber] = useState(date.getDay())
     const [dayName, setDayName] = useState(days[dayNumber])
-    const [hourly, setHourly] = useState(false)
-    const [dayly, setDayly] = useState(false)
+    const [scrollTarget, setScrollTarget] = useState(null);
+
     // const [icon, setIcon] = useState(data.weather[0].icon);
     // const [iconUrl, setIconUrl] = useState(`https://openweathermap.org/img/wn/${icon}.png`);
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setDate(new Date())
+        }, 60000)
+
+        return () => clearInterval(interval)
+    }, [])
     const [image, setImage] = useState(() => {
     if (!data) return null;
     
@@ -73,6 +81,36 @@ export const WeatherCards = ({location, data}) => {
 
         console.log(data.weather[0].main)
     }, [location, data]) 
+
+    useEffect(() => {
+        if (!scrollTarget) return;
+        const section = document.getElementById(scrollTarget);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "center" });
+            setScrollTarget(null); 
+        }
+    }, [scrollTarget]);
+
+    const handleHourlyClick = () => {
+        setUserClick("hourly");     
+        setScrollTarget("hourly-forecast");
+    };
+
+    const handleDailyClick = () => {
+        setUserClick("daily");
+        setScrollTarget("dayly-forecast");
+    };
+
+    const handleSeemoreClick = () => {
+        setUserClick("weather");
+        setScrollTarget("weather-info");
+    };
+
+    const reloadFunc = () => {
+        setDate(new Date())
+        setDayName(days[dayNumber]);
+        reload()
+    }
     
     return (
         <div className={styles.weatherDiv}>
@@ -84,17 +122,8 @@ export const WeatherCards = ({location, data}) => {
                             </div>
                             <p className={styles.weatherTime}>{date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                             <div className={styles.weatherButtonDiv}>
-                                <button onClick={() => {setHourly(true)}} className={styles.weatherButton}>Hourly forecast</button>
-                                <button onClick={() => {const section = document.getElementById("forecast");
-                                 if (section) {
-                                    const top = section.offsetTop - (window.innerHeight / 2) + (section.offsetHeight / 2);
-                                    window.scrollTo({
-                                    top: top,
-                                    behavior: "smooth" 
-                                })} else {
-                                    setDayly(true)
-                                }
-                                }} className={styles.weatherButton}>5-day forecast</button>
+                                <button onClick={handleHourlyClick} className={styles.weatherButton}>Hourly forecast</button>
+                                <button onClick={handleDailyClick} className={styles.weatherButton}>5-day forecast</button>
                             </div>
                             <div className={styles.weatherDateDiv}>
                                 <p className={styles.weatherDate}>{date.toLocaleDateString()}</p>
@@ -106,13 +135,13 @@ export const WeatherCards = ({location, data}) => {
                                 <p className={styles.weatherDegrees}>{Math.round(data.main.temp)}℃</p>
                             </div>
                             <div className={styles.weatherInfoDiv}>
-                                <button type='button' className={styles.reloadButton}> 
+                                <button onClick={reloadFunc} type='button' className={styles.reloadButton}> 
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
                                 <button type='button' className={styles.likeButton}>
                                     <IoMdHeartEmpty className={styles.likeIcon}/>
                                 </button>
-                                <button type='button' className={styles.seeMoreButton}>
+                                <button onClick={handleSeemoreClick} type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
                                 <button type='button' className={styles.deleteButton}>
@@ -127,16 +156,8 @@ export const WeatherCards = ({location, data}) => {
                             </div>
                             <p className={styles.weatherTime}>{date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                             <div className={styles.weatherButtonDiv}>
-                                <button onClick={() => {setHourly(true)}} className={styles.weatherButton}>Hourly forecast</button>
-                                <button onClick={() => {const section = document.getElementById("forecast");
-                                 if (section) {
-                                    const top = section.offsetTop - (window.innerHeight / 2) + (section.offsetHeight / 2);
-                                    window.scrollTo({
-                                    top: top,
-                                    behavior: "smooth" 
-                                    })} else {
-                                    setDayly(true)
-                                }}} className={styles.weatherButton}>5-day forecast</button>
+                                <button onClick={handleHourlyClick} className={styles.weatherButton}>Hourly forecast</button>
+                                <button onClick={handleDailyClick} className={styles.weatherButton}>5-day forecast</button>
                             </div>
                             <div className={styles.weatherDateDiv}>
                                 <p className={styles.weatherDate}>{date.toLocaleDateString()}</p>
@@ -148,13 +169,13 @@ export const WeatherCards = ({location, data}) => {
                                 <p className={styles.weatherDegrees}>{Math.round(data.main.temp)}℃</p>
                             </div>
                             <div className={styles.weatherInfoDiv}>
-                                <button type='button' className={styles.reloadButton}> 
+                                <button onClick={reloadFunc} type='button' className={styles.reloadButton}> 
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
                                 <button type='button' className={styles.likeButton}>
                                     <IoMdHeartEmpty className={styles.likeIcon}/>
                                 </button>
-                                <button type='button' className={styles.seeMoreButton}>
+                                <button onClick={handleSeemoreClick} type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
                                 <button type='button' className={styles.deleteButton}>
@@ -169,18 +190,8 @@ export const WeatherCards = ({location, data}) => {
                             </div>
                             <p className={styles.weatherTime}>{date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                             <div className={styles.weatherButtonDiv}>
-                                <button onClick={() => {setHourly(true)}} className={styles.weatherButton}>Hourly forecast</button>
-                                <button onClick={() => {const section = document.getElementById("forecast");
-                                 if (section) {
-                                    const top = section.offsetTop - (window.innerHeight / 2) + (section.offsetHeight / 2);
-                                    window.scrollTo({
-                                    top: top,
-                                    behavior: "smooth" 
-                                })} else {
-                                    setDayly(true)
-                                }
-
-                                }} className={styles.weatherButton}>5-day forecast</button>
+                                <button onClick={handleHourlyClick} className={styles.weatherButton}>Hourly forecast</button>
+                                <button onClick={handleDailyClick} className={styles.weatherButton}>5-day forecast</button>
                             </div>
                             <div className={styles.weatherDateDiv}>
                                 <p className={styles.weatherDate}>{date.toLocaleDateString()}</p>
@@ -192,13 +203,13 @@ export const WeatherCards = ({location, data}) => {
                                 <p className={styles.weatherDegrees}>{Math.round(data.main.temp)}℃</p>
                             </div>
                             <div className={styles.weatherInfoDiv}>
-                                <button type='button' className={styles.reloadButton}> 
+                                <button onClick={reloadFunc} type='button' className={styles.reloadButton}> 
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
                                 <button type='button' className={styles.likeButton}>
                                     <IoMdHeartEmpty className={styles.likeIcon}/>
                                 </button>
-                                <button type='button' className={styles.seeMoreButton}>
+                                <button onClick={handleSeemoreClick} type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
                                 <button type='button' className={styles.deleteButton}>

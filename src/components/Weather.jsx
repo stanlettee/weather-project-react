@@ -1,7 +1,9 @@
 import styles from './styles/Weather.module.css'
 import { WeatherCards } from './Weather/WeatherCards'
 import { WeatherInfo } from './Weather/WeatherInfo'
-import { WeatherForecast } from './Weather/WeatherForecast'
+import { WeatherForecast } from './Weather/WeatherDaylyForecast'
+import { WeatherHourlyForecast } from './Weather/WeatherHourlyForecast'
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -9,7 +11,8 @@ export const Weather = ({location, isUserLocation}) => {
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState(null)
-    useEffect(() => {
+    const [userClick, setUserClick] = useState(false)
+    const reload = () => {
         if (!location) return;
         setError(false);
         setLoading(true)
@@ -25,8 +28,30 @@ export const Weather = ({location, isUserLocation}) => {
         .catch(err => {
             console.log(err); 
             setError(true)
+            setLoading(false)
     });
+    }
+    useEffect(() => {
+        reload()
     }, [location]); 
+
+    useEffect(() => {
+        if (!userClick) return;
+
+        let targetId = '';
+        if(userClick === "hourly") targetId = "hourly-forecast";
+        if(userClick === "daily") targetId = "dayly-forecast";
+        if(userClick === "weather") targetId = "weather-info";
+
+        const timeout = setTimeout(() => {
+            const section = document.getElementById(targetId);
+            if(section){
+                section.scrollIntoView({behavior: "smooth", block: "center"});
+            }
+        }, 100);
+
+        return () => clearTimeout(timeout);
+    }, [userClick]);
 
     if (error) {
         return (
@@ -53,10 +78,11 @@ export const Weather = ({location, isUserLocation}) => {
     return (
             <section className={styles.weather}>
                 <div className={`${styles.container} container`}>
-                    <WeatherCards location={location} data={data}/>
-                    {isUserLocation && (
+                    <WeatherCards setUserClick={setUserClick} location={location} data={data} reload={reload}/>
+                    {(isUserLocation || userClick) && (
                     <>
                         <WeatherInfo data={data} />
+                        <WeatherHourlyForecast data={data} />
                         <WeatherForecast data={data} />
                     </>
                     )}

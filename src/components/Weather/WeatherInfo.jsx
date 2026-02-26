@@ -7,7 +7,7 @@ import humidity from '../../images/humidity.png'
 
 export const WeatherInfo = ({data}) => {
     return (
-        <div className={styles.div}>
+        <div id='weather-info' className={styles.div}>
             <ul className={styles.list}>
                 <li className={styles.item}>
                     <p className={styles.title}>Feels like</p>

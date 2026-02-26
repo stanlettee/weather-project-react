@@ -30,7 +30,7 @@ export const WeatherForecast = ({data}) => {
         return;
     }
     return (
-        <div id='forecast' className={styles.div}>
+        <div id='dayly-forecast' className={styles.div}>
             <h2 className={styles.title}>5-day forecast</h2>
             <ul className={styles.list}>
                 {forecast.slice(0, 5).map((item, index) => {

@@ -11,7 +11,8 @@
 .modal {
     width: 100%;
     max-width: 293px;
-    height: 454px;
+    height: 100%;
+    max-height: 454px;
     padding: 25px;
     border-radius: 25px;
     border: none;
@@ -99,13 +100,15 @@
 
 .link {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
     .modal {
         width: 100%;
         max-width: 400px;
-        height: 440px;
+        height: 100%;
+        max-height: 440px;
         padding-left: 45px;
         padding-right: 45px;
         padding-top: 30px;
@@ -180,7 +183,8 @@
     .modal {
         width: 100%;
         max-width: 600px;
-        height: 534px;
+        height: 100%;
+        max-height: 534px;
         padding-left: 80px;
         padding-right: 80px;
         padding-top: 28px;

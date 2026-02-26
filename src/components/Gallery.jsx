@@ -33,7 +33,6 @@ export const Gallery = () => {
             })
         .then(response => {
             setImages(response.data.hits)
-            console.log(response.data.hits)
         })
         .catch(error => {
             console.error(error);
@@ -51,7 +50,6 @@ export const Gallery = () => {
             })
         .then(response => {
             setImages(response.data.hits)
-            console.log(response.data.hits)
         })
         .catch(error => {
             console.error(error);
@@ -64,7 +62,6 @@ export const Gallery = () => {
                 <h3 className={styles.title}>Beautiful nature</h3>
                 <ul className={styles.list}>
                     {images.map((item, index) => {
-                        console.log(index)
                         return <li key={index} className={styles.item}>
                             <img onClick={() => setImageSrc(index)} src={item.largeImageURL} className={styles[`image${index + 1}`]}/>
                         </li>

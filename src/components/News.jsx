@@ -63,21 +63,6 @@ export const News = () => {
                             <p className={styles.text}>{item.content}</p>
                         </li>
                     })}
-                    {/* <li className={styles.item}>
-
-                    </li>
-                    <li className={styles.item}>
-                        <img className={styles.image} src={pet2}/>
-                        <p className={styles.text}>Cat interrupts morning coffee on sunny Washington morning</p>
-                    </li>
-                    <li className={styles.item}>
-                        <img className={styles.image} src={pet3}/>
-                        <p className={styles.text}>New study finds dogs pay more attention to women</p>
-                    </li>
-                    <li className={styles.item}>
-                        <img className={styles.image} src={pet4}/>
-                        <p className={styles.text}>Petting dogs gives health benefit, even if they are not yours</p>
-                    </li> */}
                 </ul>
                 <button onClick={() => {setSeeMore(seeMore + 4)}} className={styles.button} type='button'>See more</button>
             </div>
