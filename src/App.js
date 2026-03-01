@@ -86,6 +86,7 @@ function App() {
     );
 
     if (!user) {
+      toast.error("Invalid credentials")
       return { success: false, message: "Invalid credentials" };
     }
 
