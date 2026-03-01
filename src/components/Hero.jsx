@@ -55,7 +55,7 @@ export const Hero = ({setLocation, setIsUserLocation}) => {
     }, []);
 
     return (
-        <section className={styles.hero}>
+        <section id='about-us' className={styles.hero}>
             <div className={`${styles.container} container`}>
                 <h1 className={styles.heroTitle}>Weather dashboard</h1>
                 <div className={styles.heroDiv}>

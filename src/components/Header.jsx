@@ -25,7 +25,15 @@ export const Header = ({setModal, isLoggedIn, logoutUser, currentUser, setIsLogg
         setScrollTarget("footer")
     }
 
+    const handleMenuClick = () => {
+        setMenuOpen(false)
+        setScrollTarget("menu")
+    }
 
+    const handleAboutUsClick = () => {
+        setMenuOpen(false)
+        setScrollTarget("about-us")
+    }
 
     return (
         <header className={styles.header}>
@@ -60,13 +68,13 @@ export const Header = ({setModal, isLoggedIn, logoutUser, currentUser, setIsLogg
                 </nav>
                 <ul className={styles.headerList}>
                     <li className={styles.headerItem}>
-                        <a className={styles.headerLink} href=''>Who we are</a>
+                        <a className={styles.headerLink} onClick={handleAboutUsClick}>Who we are</a>
                     </li>
                     <li className={styles.headerItem}>
                         <a className={styles.headerLink} onClick={handleContactsClick}>Contacts</a>
                     </li>
                     <li className={styles.headerItem}>
-                        <a className={styles.headerLink} href=''>Menu</a>
+                        <a className={styles.headerLink} onClick={handleMenuClick}>Menu</a>
                     </li>
                 </ul>
                 <div className={styles.headerDiv}>

@@ -137,7 +137,7 @@ export const Weather = ({location, isUserLocation, isLoggedIn, currentUser, like
 
     if (card) {
         return (
-            <section className={styles.weather}>
+            <section id='menu' className={styles.weather}>
                 <div className={`${styles.container} container`}>
                     <WeatherCards toggleLikeCity={toggleLikeCity} likedCities={likedCities} setUserClick={setUserClick} location={location} data={data} reload={reload} card={card} setCard={setCard} deleteCard={deleteCard} isLoggedIn={isLoggedIn}/>
                     {(isUserLocation || userClick) && (
