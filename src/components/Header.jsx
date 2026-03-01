@@ -6,22 +6,9 @@ import user from '../images/user.webp'
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useState, useEffect } from 'react'
 
-export const Header = ({setModal, isLoggedIn, logoutUser, currentUser}) => {
-    const [menuOpen, setMenuOpen] = useState(false);
+export const Header = ({setModal, isLoggedIn, logoutUser, currentUser, setIsLoggedIn, menuOpen, setMenuOpen}) => {
     const [scrollTarget, setScrollTarget] = useState(null);
 
-    useEffect(() => {
-        if (menuOpen) {
-            document.body.style.overflow = "hidden";
-            
-        } else {
-            document.body.style.overflow = "auto";
-        }
-
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, [menuOpen]);
 
     useEffect(() => {
         if (!scrollTarget) return;
@@ -31,6 +18,7 @@ export const Header = ({setModal, isLoggedIn, logoutUser, currentUser}) => {
             setScrollTarget(null); 
         }
     }, [scrollTarget]);
+
 
     const handleContactsClick = () => {
         setMenuOpen(false)
@@ -61,8 +49,8 @@ export const Header = ({setModal, isLoggedIn, logoutUser, currentUser}) => {
                     </ul>
                     <div className={styles.headerDiv}>
                         <img className={styles.headerAvatar} src={user} alt="user's avatar"/>
-                        {isLoggedIn && (
-                            <button className={styles.userButton} type='button' onClick={logoutUser}>{currentUser}</button>
+                        {isLoggedIn && currentUser && (
+                            <button className={styles.userButton} type='button' onClick={logoutUser}>{currentUser?.username}</button>
                         )} 
                         {!isLoggedIn && (
                             <button onClick={() => {setModal(true)}} type='button' className={styles.headerButton}>Sign Up</button>
@@ -82,10 +70,10 @@ export const Header = ({setModal, isLoggedIn, logoutUser, currentUser}) => {
                     </li>
                 </ul>
                 <div className={styles.headerDiv}>
-                    {isLoggedIn && (
-                        <button className={styles.userButton} type='button' onClick={logoutUser}>{currentUser}</button>
+                    {isLoggedIn && currentUser && (
+                        <button className={styles.userButton} type='button' onClick={logoutUser}>{currentUser?.username}</button>
                     )} 
-                    {!isLoggedIn && (
+                    {!isLoggedIn && !currentUser && (
                         <button onClick={() => {setModal(true)}} type='button' className={styles.headerButton}>Sign Up</button>
                     )}
                     <img className={styles.headerAvatar} src={user} alt="user's avatar"/>
@@ -95,7 +83,6 @@ export const Header = ({setModal, isLoggedIn, logoutUser, currentUser}) => {
                         <a className={styles.headerMenuLink}>Menu</a>
                         <MdOutlineKeyboardArrowRight className={styles.headerMenuIcon}/>
                     </button>
-                    
                 </div>
             </div>
         </header>

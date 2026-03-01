@@ -9,11 +9,12 @@
 
 .weatherList {
     display: flex;
+    justify-content: center;
 }  
 
 .weatherItem {
     width: 293px;
-    height: 392px;
+    height: 100%;
     background-color: #E8E8E8;
     border: none;
     border-radius: 25px;
@@ -55,16 +56,16 @@
 .weatherButton {
     background-color: #FFB36C;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Montserrat", sans-serif;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 500;
     color: #000000;
-    width: 95px;
-    height: 23px;
+    width:  108px;
+    height: 28px;
     transition: 
             background-color 0.2s ease,
             transform 0.15s ease,
@@ -87,7 +88,7 @@
 
 .weatherDateDiv {
     display: flex;
-    padding-left: 52px;
+    padding-left: 48px;
     gap: 12px;
     margin-bottom: 32px;
 }
@@ -114,13 +115,13 @@
 }
 
 .weatherImage {
-    width: 83px;
-    height: 83px;
+    width: 86px;
+    height: 86px;
 }
 
 .weatherDegrees {
     font-family: "Montserrat", sans-serif;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 500;
     color: #000000;
 }
@@ -134,35 +135,59 @@
     margin-right: 14px;
     border: none;
     background-color: transparent;
+    transition: all 0.3s ease; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
 }
 
 .reloadIcon {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
 }
 
 .likeButton {
-    margin-right: 32px;
+    margin-right: 28px;
     border: none;
     background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
 }
 
 .likeIcon {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
+}
+
+.likeButton:hover {
+  transform: scale(1.2);  
+}
+
+.likeIcon {
+  color: #000000;     
+  font-size: 1.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.likeButton:hover .likeIcon {
+  color: #ff4d4d;    
+  transform: scale(1.1);    
 }
 
 .seeMoreButton {
-    width: 84px;
-    height: 27px;
-    margin-right: 27px;
+    width: 90px;
+    height: 28px;
+    margin-right: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #FFB36C;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 500;
     color: #000000;
     font-family: "Montserrat", sans-serif;
@@ -188,12 +213,49 @@
 .deleteButton {
     border: none;
     background-color: transparent;
+    transition: all 0.3s ease;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    
+}
+
+.deleteButton:hover {
+  background-color: #ff4d4d;  
+  transform: scale(1.1);   
 }
 
 .deleteIcon {
-    width: 24px;
-    height: 24px;
+  color: #000000;          
+  font-size: 1.3rem;
+  transition: color 0.2s ease;
 }
+
+.deleteButton:hover .deleteIcon {
+  color: #fff;      
+}
+
+.deleteIcon {
+    width: 26px;
+    height: 26px;
+}
+
+.reloadButton:hover {
+  background-color: #4da6ff;      /* light blue background on hover */
+}
+
+.reloadIcon {
+  color: #000000;                    /* default icon color */
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.reloadButton:hover .reloadIcon {
+  color: #fff;                    /* icon becomes white */
+  transform: rotate(360deg);      /* full rotation on hover */
+}
+
 
 @media (min-width: 768px) {
     .weatherDiv {
@@ -211,7 +273,7 @@
 
     .weatherItem {
         width: 262px;
-        height: 352px;
+        height: 100%;
         padding-top: 12px;
         padding-bottom: 15px;
     }
@@ -261,7 +323,7 @@
 
     .weatherItem {
         width: 320px;
-        height: 430px;
+        height: 100%;
         padding-bottom: 20px;
         padding-top: 15px;
         padding-left: 20px;

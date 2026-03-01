@@ -30,7 +30,7 @@
 }
 
 .title {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     color: #000000;
     font-family: "Montserrat", sans-serif;
@@ -38,7 +38,7 @@
 }
 
 .text {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     color: #000000;
     font-family: "Montserrat", sans-serif;
@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 10px;
+    row-gap: 12px;
 }
 
 .maxminItem {

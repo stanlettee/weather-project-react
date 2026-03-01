@@ -29,7 +29,6 @@ export const WeatherHourlyForecast = ({data}) => {
         }
     })
     
-
     return (
         <div id='hourly-forecast' className={styles.div}>
             <h2 className={styles.title}>Hourly forecast</h2>

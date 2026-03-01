@@ -12,32 +12,27 @@ export const Modal = ({modal, setModal, registerUser, loginUser}) => {
         const email = form.email.value
         const password = form.password.value
         const result = registerUser(username, email, password);
+        console.log(result)
 
         if (result.success) {
-            toast.success('Registered successfully!');
             setModal(false);
-        } else {
-            toast.error(result.message);
         }
 
         form.reset();
     }
 
     const handleLoginSubmit = (e) => {
-        e.preventDefault()
-        const form = e.target
-        const email = form.email.value
-        const password = form.password.value
-        const result = loginUser(email, password);
+    e.preventDefault()
 
-        if (result.success) {
-            toast.success('Logged in successfully!');
-            setModal(false);
-        } else {
-            toast.error(result.message);
-        }
+    const form = e.target
+    const email = form.email.value
+    const password = form.password.value
 
-        form.reset();
+    const result = loginUser(email, password)
+
+    if (result.success) {
+        setModal(false)
+    }
     }
 
 
@@ -45,8 +40,6 @@ export const Modal = ({modal, setModal, registerUser, loginUser}) => {
         setLogIn(false)
     }, [modal])
     if (modal) {
-        document.body.style.overflow = 'hidden';
-        
         if (!logIn) {
             return (
                 <div className={styles.backdrop} onClick={() => {setModal(false)}}>
@@ -83,7 +76,5 @@ export const Modal = ({modal, setModal, registerUser, loginUser}) => {
             )
         }
 
-    } else {
-        document.body.style.overflow = 'auto';
     }
 }

@@ -60,7 +60,7 @@ export const News = () => {
                     {news.map((item, index) => {
                         return <li key={index}>
                             <img className={styles.image} src={item.urlToImage}/>
-                            <p className={styles.text}>{item.content}</p>
+                            <p className={styles.text}>{item.title}</p>
                         </li>
                     })}
                 </ul>

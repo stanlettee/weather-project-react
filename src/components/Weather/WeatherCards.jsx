@@ -13,14 +13,17 @@ import scatteredClouds from '../../images/scattered-clouds.png'
 import mist from '../../images/mist.png'
 import snow from '../../images/snow.png'
 import thunder from '../../images/thunder.png'
+import { ToastContainer, toast } from 'react-toastify';
+import { FcLike } from "react-icons/fc";
 
-export const WeatherCards = ({setUserClick, location, data, reload}) => {
+export const WeatherCards = ({setUserClick, location, data, reload, card, setCard, deleteCard, toggleLikeCity, likedCities, isLoggedIn}) => {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const [date, setDate] = useState(new Date())
     const [dayNumber] = useState(date.getDay())
     const [dayName, setDayName] = useState(days[dayNumber])
     const [scrollTarget, setScrollTarget] = useState(null);
-
+    const notifyReload = () => toast.info('Card was reloaded.');
+    const isLiked = likedCities.some(city => city.id === data.id);
     // const [icon, setIcon] = useState(data.weather[0].icon);
     // const [iconUrl, setIconUrl] = useState(`https://openweathermap.org/img/wn/${icon}.png`);
     
@@ -109,11 +112,13 @@ export const WeatherCards = ({setUserClick, location, data, reload}) => {
     const reloadFunc = () => {
         setDate(new Date())
         setDayName(days[dayNumber]);
+        notifyReload()
         reload()
     }
     
     return (
-        <div className={styles.weatherDiv}>
+        <div id="weather-cards" className={styles.weatherDiv}>
+                {card && (
                     <ul className={styles.weatherList}>
                         <li className={styles.weatherItem}>
                             <div className={styles.weatherCityNameDiv}>
@@ -138,13 +143,17 @@ export const WeatherCards = ({setUserClick, location, data, reload}) => {
                                 <button onClick={reloadFunc} type='button' className={styles.reloadButton}> 
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
-                                <button type='button' className={styles.likeButton}>
-                                    <IoMdHeartEmpty className={styles.likeIcon}/>
+                                <button onClick={() => toggleLikeCity(data)} type='button' className={styles.likeButton}>
+                                    {isLiked ? (
+                                        <FcLike className={styles.likeIcon} />
+                                    ) : (
+                                        <IoMdHeartEmpty className={styles.likeIcon} />
+                                    )}
                                 </button>
                                 <button onClick={handleSeemoreClick} type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
-                                <button type='button' className={styles.deleteButton}>
+                                <button onClick={(e) => {deleteCard(e)}} type='button' className={styles.deleteButton}>
                                     <RiDeleteBin6Line className={styles.deleteIcon}/>
                                 </button>
                             </div>
@@ -172,13 +181,17 @@ export const WeatherCards = ({setUserClick, location, data, reload}) => {
                                 <button onClick={reloadFunc} type='button' className={styles.reloadButton}> 
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
-                                <button type='button' className={styles.likeButton}>
-                                    <IoMdHeartEmpty className={styles.likeIcon}/>
+                                <button onClick={() => toggleLikeCity(data)} type='button' className={styles.likeButton}>
+                                    {isLiked ? (
+                                        <FcLike className={styles.likeIcon} />
+                                    ) : (
+                                        <IoMdHeartEmpty className={styles.likeIcon} />
+                                    )}
                                 </button>
                                 <button onClick={handleSeemoreClick} type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
-                                <button type='button' className={styles.deleteButton}>
+                                <button onClick={(e) => {deleteCard(e)}} type='button' className={styles.deleteButton}>
                                     <RiDeleteBin6Line className={styles.deleteIcon}/>
                                 </button>
                             </div>
@@ -206,18 +219,23 @@ export const WeatherCards = ({setUserClick, location, data, reload}) => {
                                 <button onClick={reloadFunc} type='button' className={styles.reloadButton}> 
                                     <IoReload className={styles.reloadIcon}/>
                                 </button>
-                                <button type='button' className={styles.likeButton}>
-                                    <IoMdHeartEmpty className={styles.likeIcon}/>
+                                <button onClick={() => toggleLikeCity(data)} type='button' className={styles.likeButton}>
+                                    {isLiked ? (
+                                        <FcLike className={styles.likeIcon} />
+                                    ) : (
+                                        <IoMdHeartEmpty className={styles.likeIcon} />
+                                    )}
                                 </button>
                                 <button onClick={handleSeemoreClick} type='button' className={styles.seeMoreButton}>
                                     See more
                                 </button>
-                                <button type='button' className={styles.deleteButton}>
+                                <button onClick={(e) => {deleteCard(e)}} type='button' className={styles.deleteButton}>
                                     <RiDeleteBin6Line className={styles.deleteIcon}/>
                                 </button>
                             </div>
                         </li>
                     </ul>
+                )}
                 </div>
     )
 }

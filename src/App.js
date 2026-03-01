@@ -12,29 +12,71 @@ import { ToastContainer, toast } from 'react-toastify';
 function App() {
   const [modal, setModal] = useState(false)
   const [location, setLocation] = useState('Kyiv')
-  const [isUserLocation, setIsUserLocation] = useState(false) 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [currentUser, setCurrentUser] = useState(null)
+  const [isUserLocation, setIsUserLocation] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
   const [users, setUsers] = useState(() => {
     const stored = localStorage.getItem("users");
-    console.log(stored)
     return stored ? JSON.parse(stored) : [];
   });
 
+  const [currentUser, setCurrentUser] = useState(() => {
+    const stored = localStorage.getItem("currentUser");
+    return stored ? JSON.parse(stored) : null;
+  });
 
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return !!localStorage.getItem("currentUser");
+  });
+
+  const [likedCities, setLikedCities] = useState(() => {
+    const storedUser = localStorage.getItem("currentUser");
+
+    if (!storedUser) return [];
+
+    const parsedUser = JSON.parse(storedUser);
+    const storedLikes = localStorage.getItem(
+      `likedCities_${parsedUser.email}`
+    );
+
+    return storedLikes ? JSON.parse(storedLikes) : [];
+  });
+
+  useEffect(() => {
+    document.body.style.overflow =
+      modal || menuOpen ? "hidden" : "auto";
+  }, [modal, menuOpen]);
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
+
+  useEffect(() => {
+    if (!currentUser) return;
+
+    localStorage.setItem(
+      `likedCities_${currentUser.email}`,
+      JSON.stringify(likedCities)
+    );
+  }, [likedCities, currentUser]);
 
 
   const registerUser = (username, email, password) => {
     const userExists = users.find(user => user.email === email);
+
     if (userExists) {
       return { success: false, message: "User already exists" };
     }
 
     const newUser = { username, email, password };
+
     setUsers(prev => [...prev, newUser]);
-    setIsLoggedIn(true)
-    console.log(newUser)
-    console.log(isLoggedIn)
+    setCurrentUser(newUser);
+    setIsLoggedIn(true);
+
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
+
+    toast.success("Registered successfully!");
     return { success: true };
   };
 
@@ -44,52 +86,76 @@ function App() {
     );
 
     if (!user) {
-      toast.error("Invalid credentials");
       return { success: false, message: "Invalid credentials" };
-      
     }
-    setCurrentUser(user)
+
+    setCurrentUser(user);
+    setIsLoggedIn(true);
+
     localStorage.setItem("currentUser", JSON.stringify(user));
 
+    const storedLikes = localStorage.getItem(
+      `likedCities_${user.email}`
+    );
 
-    setIsLoggedIn(true)
-    toast.success("Registered successfully!");
+    setLikedCities(storedLikes ? JSON.parse(storedLikes) : []);
+
+    toast.success("Logged in successfully!");
     return { success: true };
   };
 
   const logoutUser = () => {
     localStorage.removeItem("currentUser");
+
+    setCurrentUser(null);
     setIsLoggedIn(false);
-    setCurrentUser(null)
+    setLikedCities([]);
+
+    toast.info("Logged out successfully!");
   };
-
-  useEffect(() => {
-    console.log(location)
-    console.log(isUserLocation)
-  }, [location])
-
-  useEffect(() => {
-    localStorage.setItem("users", JSON.stringify(users));
-  }, [users]);
-
-  useEffect(() => {
-    const currentUser = localStorage.getItem("currentUser");
-    if (currentUser) {
-      setIsLoggedIn(true);
-    }
-  }, []);
 
   return (
     <div className='app'>
-      <Header setModal={setModal} setIsLoggedIn={setIsLoggedIn} logoutUser={logoutUser} isLoggedIn={isLoggedIn} currentUser={currentUser}/>
+      <Header
+        setModal={setModal}
+        logoutUser={logoutUser}
+        isLoggedIn={isLoggedIn}
+        currentUser={currentUser}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+      />
+
       <main className='content'>
-        <Hero setLocation={setLocation} setIsUserLocation={setIsUserLocation}/>
-        <Weather location={location} isUserLocation={isUserLocation} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
+        <ToastContainer position="top-right" autoClose={2000} />
+
+        <Hero
+          setLocation={setLocation}
+          setIsUserLocation={setIsUserLocation}
+        />
+
+        <Weather
+          likedCities={likedCities}
+          setLikedCities={setLikedCities}
+          location={location}
+          isUserLocation={isUserLocation}
+          setIsUserLocation={setIsUserLocation}
+          isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
+          setLocation={setLocation}
+        />
+
         <News />
         <Gallery />
-      </main> 
+      </main>
+
       <Footer />
-      <Modal modal={modal} setModal={setModal} registerUser={registerUser} loginUser={loginUser}/>
+
+      <Modal
+        modal={modal}
+        setModal={setModal}
+        registerUser={registerUser}
+        loginUser={loginUser}
+      />
     </div>
   );
 }
