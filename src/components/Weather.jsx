@@ -21,14 +21,14 @@ export const Weather = ({location, isUserLocation, isLoggedIn, currentUser, like
         localStorage.setItem("likedCities", JSON.stringify(likedCities));
     }, [likedCities]);
 
-const weatherInfo = (location) => {
-    setLocation(location);
-    setIsUserLocation(true);
-    const section = document.getElementById("weather-cards");
-    if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-};
+    const weatherInfo = (location) => {
+        setLocation(location);
+        setIsUserLocation(true);
+        const section = document.getElementById("weather-cards");
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    };
 
 
     const toggleLikeCity = (cityData) => {
@@ -73,6 +73,7 @@ const weatherInfo = (location) => {
         setError(false);
         setLoading(true)
 
+
         axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=7d999ffaaae7e56a4ec93496de93f111`
         )
@@ -81,6 +82,7 @@ const weatherInfo = (location) => {
             setCard(true)
             setData(res.data)
             setLoading(false)
+
         })
         .catch(err => {
             console.log(err); 

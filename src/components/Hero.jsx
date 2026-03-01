@@ -10,6 +10,10 @@ export const Hero = ({setLocation, setIsUserLocation}) => {
         e.preventDefault()
         setLocation(name)
         setIsUserLocation(true)
+        const section = document.getElementById("weather-cards");
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
     }
 
     const handleChange = (e) => {
