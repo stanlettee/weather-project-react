@@ -65,6 +65,7 @@ function App() {
     const userExists = users.find(user => user.email === email);
 
     if (userExists) {
+      toast.error("User already exists")
       return { success: false, message: "User already exists" };
     }
 
